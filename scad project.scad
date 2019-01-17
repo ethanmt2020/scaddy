@@ -1,13 +1,36 @@
-//S & P Shaker
-//Ethan MT
-//January 10th, 2019
+//new shaker
 
+//saltshaker 
 
-//base
-cylinder(r=20,h=5, $fn=5);
+//modules
+module box(size) {
+    cube([2*size, 2*size, size], center = true); 
+}
 
-//sides
-translate([-8.5,-23,20]) rotate([50,50,130])cylinder(r=20,h=5, $fn=5);
+module dodecahedron(size) {
+      dihedral = 116.565;
+      intersection(){
+            box(size);
+            intersection_for(i=[1:5])  { 
+                rotate([dihedral, 0, 360 / 5 * i])  box(size); 
+           }
+      }
+}
+
+//difference
+
+ difference()
+{
+    dodecahedron(20);
+    dodecahedron(18);
+    *cube(22);
+}
+
+ translate()
+{
+    cylinder(12.5);
+}
+
 
 
 
