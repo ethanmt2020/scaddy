@@ -23,11 +23,11 @@ module dodecahedron(size) {
     dodecahedron(18);
     cube(12);
    translate([1.5,0,0])
-    cylinder(12);
+    cylinder(12, $fn= 100);
     translate([-1,1.5,0])
-    cylinder(12);
+    cylinder(12, $fn= 100);
      translate([-1,-1.5,0])
-    cylinder(12);
+    cylinder(12, $fn= 100);
       translate([0,0,-15])
     cylinder(h = 9, r = 5, center = false);
     
@@ -42,6 +42,6 @@ module dodecahedron(size) {
        
 }
 {
-    translate([0,0,-10.5]) !circle(7, $fn=5);
-    rotate(0,0,0);
+     translate([0,0,-10.5])
+    rotate(17.6,17.6,17.6) circle(7.6, $fn=5);
 }
